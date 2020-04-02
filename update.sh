@@ -1,6 +1,6 @@
 cd UtilityPi
-unzip PrintUtility_version_1.zip
+unzip Utilitypi.zip
 cp -R UtilityPi/ .
-rm -rf PrintUtility_version_1.zip
+rm -rf Utilitypi.zip
 rm -rf UtilityPi
 pm2 restart index
