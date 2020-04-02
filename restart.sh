@@ -1,2 +1,2 @@
-pm2 restart index.js
+pm2 restart oputility
 echo "success"
