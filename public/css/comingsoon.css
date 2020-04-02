@@ -1,0 +1,144 @@
+body { background:url("..//imgs/bg-comingsoon.jpg") no-repeat left top; background-attachment:fixed; background-size:cover;}
+.comingSoonWrapMain { width:100%; height:100%; position:fixed; z-index:99999998; top:0; left:0; background:rgba(0,0,0,0.20);}
+.comingSoonWrap { width:1064px;  top:50%; height:537px; margin-top:-252px; margin-left:-532px; position:fixed; left:50%;
+	background:rgba(255,255,255,0.85); background-image:url("..//imgs/soon_bg.png"); background-repeat:no-repeat; background-position:right top; background-size:437px;
+}
+.comingSoonWrap .head1 { font-weight:bold; color:#000000; font-size:40px; padding:30px 0 10px 0; margin:0;}
+.comingSoonWrap .head1 span { color:#ec2027; font-size:31px;}
+.comingSoonWrap .para { padding:0 0 20px 0; margin:0; font-size:16px;}
+.comingSoonWrap .inner { padding:6rem;}
+html body .comingSoonWrap .fieldWrap { padding-top:0; float:left; width:50%;}
+.comingSoonWrap .social, .comingSoonWrap li { list-style-type:none;}
+.comingSoonWrap form { float:left; width:100%;}
+.comingSoonWrap form ol { padding:0 0 0 10px; margin:0;}
+.comingSoonWrap li { float:left; list-style-type:circle; padding-right:10px; font-weight:bold; width:50%; list-style-type:none;}
+.comingSoonWrap .social { position:absolute; bottom:40px;}
+.comingSoonWrap .fieldWrap { float:left; width:100%; padding:20px 0;}
+.comingSoonWrap .fieldWrap .txt { border:1px solid #c3c3c3; box-shadow:inset #c3c3c3 -1px 0px 4px; padding:22px; width:280px;margin: 3px;}
+.comingSoonWrap .fieldWrap .txt::placeholder { font-size:18px;}
+.comingSoonWrap .fieldWrap .btn { background-color:#fa373e; color:#fff; padding:13px; text-transform:inherit;margin: 3px;}
+.comingSoonWrap .fieldWrap .btn:hover { background-color:#454545; }
+.comingSoonWrap .fieldWrap .txt , .comingSoonWrap .fieldWrap .btn { border-radius:0; }
+@media (max-width:1024px) {
+	html .comingSoonWrapMain { position:relative; }
+	html .comingSoonWrap .head1 { padding:15px 0 10px 0;}
+	html .comingSoonWrapMain .logo { max-width:140px;}
+	html .comingSoonWrap .head1 { font-size:34px;}
+	html .comingSoonWrap .head1 span { font-size:29px;}
+	html .comingSoonWrapMain .comingSoonWrap { height:auto; padding:20px 0; text-align:left;
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    top: 10%;
+    margin-left: 0;
+    margin-top:0;}
+	html .comingSoonWrap .fieldWrap { padding:6px 0;}
+	html .comingSoonWrap .fieldWrap .txt { width:65%;}
+	html .comingSoonWrap .fieldWrap .btn { white-space: normal;}
+
+	html .comingSoonWrap .social {    position: relative; margin: 0 auto;
+    max-width: 203px;
+    bottom: auto;}
+	html .comingSoonWrapMain .comingSoonWrap .inner { width: 94%;
+    padding: 15px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.7);
+    padding: 20px;
+    min-height: 475px; }
+}
+
+@media (max-width:767px) {
+	html .comingSoonWrapMain .comingSoonWrap .inner { float:left; margin-left: 3%;}
+}
+
+@media screen and (min-width:768px) and (max-width:1024px) and (orientation:portrait){
+	html .comingSoonWrapMain .comingSoonWrap { margin-top:23%;}
+}
+
+
+/* The container */
+.checkContain {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0;
+    cursor: pointer;
+     -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	padding-bottom:0;
+	min-height:25px;
+}
+
+/* Hide the browser's default checkbox */
+.checkContain input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+	border:1px solid #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkContain:hover input ~ .checkmark {
+    background-color: #ccc;
+	border:1px solid transparent;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkContain input:checked ~ .checkmark {
+    background-color: #454545;
+	border:1px solid transparent;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkContain input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkContain .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+@media only screen and (min-width:300px) and (max-width:924px){
+	html .comingSoonWrap .fieldWrap .txt {
+		width: 100%;
+	}
+
+	html .comingSoonWrapMain {
+		position: relative;
+	}
+	html body .comingSoonWrap .fieldWrap {
+		padding-top: 0;
+		float: left;
+		width: 100%;
+	}
+}
