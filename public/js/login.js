@@ -69,7 +69,6 @@ function getUpdatedVersion(data){
 
 function hookEvents(data){
   socket.emit('startUpdating', data.data[0]);
-  console.log(data);
   socket.on('updated', (version)=> {
     updateBEWithVersion(data.data[0].latestUtilityURL);
   });
@@ -86,7 +85,7 @@ let reqObj = {"merchant_id":data.merchant_id,"version":version.version};
       dataType: 'json',
       processData: false,
       headers: { "Authorization": "bearer " + data.token },
-      url: url+"updateprintUtilityVer?merchant_id="+data.merchant_id+"&version="+version.version,
+      url: url+"updateprintUtilityVer?merchant_id="+data.merchant_id+"&version="+version,
       success: (data)=> {
         $("#spinner").hide();
         $("#downloadMsg").hide();
