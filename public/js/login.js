@@ -70,7 +70,7 @@ function getUpdatedVersion(data){
 function hookEvents(data){
   socket.emit('startUpdating', data.data[0]);
   socket.on('updated', (version)=> {
-    updateBEWithVersion(data.data[0].latestUtilityURL);
+    updateBEWithVersion(data.data[0].latest_available_version);
   });
 }
 
@@ -78,7 +78,6 @@ function updateBEWithVersion(version){
   let data = userData;
   $("#spinner").show();
   $("#downloadMsg").show();
-let reqObj = {"merchant_id":data.merchant_id,"version":version.version};
   $.ajax({
       type: 'POST',
       contentType: 'application/json; charset=utf-8',
