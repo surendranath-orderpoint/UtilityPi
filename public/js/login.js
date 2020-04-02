@@ -69,7 +69,7 @@ function getUpdatedVersion(data){
 
 function hookEvents(data){
   socket.emit('startUpdating', data.data[0]);
-
+  console.log(data);
   socket.on('updated', (version)=> {
     updateBEWithVersion(data.data[0].latestUtilityURL);
   });
