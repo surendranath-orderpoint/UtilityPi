@@ -1,3 +1,4 @@
+chmod 7 UtilityPi
 cd UtilityPi
 unzip Utilitypi.zip
 cp -R UtilityPi/ .
