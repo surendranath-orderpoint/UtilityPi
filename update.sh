@@ -1,3 +1,4 @@
+pwd
 chmod 7 UtilityPi
 cd UtilityPi
 unzip Utilitypi.zip
