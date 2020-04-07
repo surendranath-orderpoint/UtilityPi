@@ -1,5 +1,17 @@
 # 1. Download nodejs
-sudo curl -sL https://deb.nodesource.com/setup_13.x |sudo -E bash -
+mkdir node
+
+cd node
+
+curl -LO https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-armv7l.tar.xz
+
+tar -xf node-v12.16.1-linux-armv7l.tar.xz
+
+export NODE_HOME=~/orderpoint/node/node-v12.16.1-linux-armv7l
+
+export PATH=$PATH:$NODE_HOME/bin
+
+source ~/.bashrc
 
 # 2. Install nodejs
 sudo apt install -y nodejs
