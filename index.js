@@ -37,15 +37,15 @@ io.on('connection',(socket)=> {
 
 function downloadFile(data){
   console.log(data);
-  downloadUpdate = exec('cd temp && { curl -LOk '+data.latestUtilityURL+' ; }',(error, stdout, stderr)=>{
+  downloadUpdate = exec('cd vault && { curl -LOk '+data.latestUtilityURL+' ; }',(error, stdout, stderr)=>{
 
   console.log('stdout: ' + stdout);
   console.log('stderr: ' + stderr);
   console.log('Updated File downloaded');
 
   try{
-    var zip = new Zip("temp/Utilitypi.zip");
-    zip.extractAllTo('temp/', true);
+    var zip = new Zip("vault/Utilitypi.zip");
+    zip.extractAllTo('vault/', true);
     console.log('Updated file extracted')
   }catch(e){
     console.log("unzipping failed.. "+e);
@@ -63,7 +63,7 @@ function downloadFile(data){
 }
 
 function updateUtility(version){
-  exec('cp -fR temp/UtilityPi/ . && { rm -rf temp ; mkdir temp ; }',(error, stdout, stderr)=>{
+  exec('cp -fR vault/UtilityPi/ . && { rm -rf vault ; mkdir vault ; }',(error, stdout, stderr)=>{
 
   console.log('stdout: ' + stdout);
   console.log('stderr: ' + stderr);
