@@ -3,7 +3,9 @@ module.exports = {
     name: 'oputility',
     script: 'index.js',
     autorestart: true,
-    watch: false,
-    max_memory_restart: '1G',
-  }],
+    watch: true,
+    ignore_watch : ["node_modules", "temp"],
+    watch_delay: 7000,
+    max_memory_restart: '1G'
+  }]
 };

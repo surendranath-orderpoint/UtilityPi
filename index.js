@@ -1,3 +1,4 @@
+const Zip = require('adm-zip');
 const http = require('http');
 const exec = require('child_process').exec;
 const express = require('express'),
@@ -22,29 +23,12 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-function restart(){
-  testscript1 = exec('sh restart.sh .');
-  testscript1.stdout.on('data', (data)=>{
-      console.log(data);
-      if(data.indexOf("success")>-1){
-        console.log("restart Successful !!!");
-      }
-
-  });
-
-  testscript1.stderr.on('data', function(data){
-      console.log(data);
-  });
-}
-
 server.listen(port, () => {
   console.log(`Server started and listening on port ${port}!`)
 })
 
 io.on('connection',(socket)=> {
   _socket = socket;
-  // console.log("Testing socket after restart");
-  // socket.emit('updated', { hello: 'world with restart' });
   _socket.on('startUpdating',  (data)=> {
     console.log(data);
     downloadFile(data);
@@ -53,39 +37,45 @@ io.on('connection',(socket)=> {
 
 function downloadFile(data){
   console.log(data);
-  downloadUpdate = exec('curl -LOk '+data.latestUtilityURL,(error, stdout, stderr)=>{
+  downloadUpdate = exec('cd temp && { curl -LOk '+data.latestUtilityURL+' ; }',(error, stdout, stderr)=>{
 
   console.log('stdout: ' + stdout);
   console.log('stderr: ' + stderr);
+  console.log('Updated File downloaded');
+
+  try{
+    var zip = new Zip("temp/Utilitypi.zip");
+    zip.extractAllTo('temp/', true);
+    console.log('Updated file extracted')
+  }catch(e){
+    console.log("unzipping failed.. "+e);
+  }
+
+  updateUtility(data.latest_available_version);
 
   if(error !== null)
   {
-      console.log('exec error: ' + error);
+      console.log('Update Download error: ' + error);
   }
-    updateUtility(data.latest_available_version);
 
   });
 
 }
 
 function updateUtility(version){
-  testscript = exec('sh ../update.sh');
+  exec('cp -fR temp/UtilityPi/ . && { rm -rf temp ; mkdir temp ; }',(error, stdout, stderr)=>{
 
-  testscript.stdout.on('data', (data)=>{
-      console.log(data);
-      if(data.indexOf("success")>-1){
-        console.log("Update Successful !!!");
-        console.log("Before socket emit");
-        _socket.emit('updated', { version: version });
-        server.close();
-        io.httpServer.close()
-        io.close();
-        restart();
-      }
-  });
+  console.log('stdout: ' + stdout);
+  console.log('stderr: ' + stderr);
+  console.log('Resources copied..')
+  // _socket.emit('updated', { version: version });
+  server.close();
+  io.httpServer.close();
+  io.close();
+  if(error !== null)
+  {
+      console.log('Resources copy error: ' + error);
+  }
 
-  testscript.stderr.on('data', function(data){
-      console.log(data);
-      // triggerErrorStuff();
   });
 }
