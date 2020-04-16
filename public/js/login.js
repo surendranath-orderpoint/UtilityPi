@@ -1,5 +1,4 @@
-// STAGING API
-var url = "https://op-au-uat-api.azurewebsites.net/api/v2/";
+var url = "https://merchantapi.orderpoint.net.au/api/v2/";
 var origin   = window.location.origin;
 var userData;
 
