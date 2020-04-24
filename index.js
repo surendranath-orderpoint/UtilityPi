@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const app = express()
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-const port = 3000
+const port = 8080
 var path = require('path');
 var _socket;
 
