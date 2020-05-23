@@ -7,9 +7,15 @@ curl -LO https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-armv7l.tar.xz
 
 tar -xf node-v12.16.1-linux-armv7l.tar.xz
 
+open bash profile and add following export commands at end of the file.
+
+vi ~/.bash_profile
+
 export NODE_HOME=~/orderpoint/node/node-v12.16.1-linux-armv7l
 
 export PATH=$PATH:$NODE_HOME/bin
+
+save and quit the file.
 
 source ~/.bashrc
 
